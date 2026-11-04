@@ -34,25 +34,26 @@
   links.forEach((_, id) => { const s = document.getElementById(id); if (s) spy.observe(s); });
 
   /* ---------- Skeleton loaders ----------
-     Cada bloque .load muestra su esqueleto hasta que entra en pantalla
-     y la página terminó de cargar (fuentes incluidas). */
-  const pageReady = new Promise(res => {
-    const done = () => (document.fonts?.ready ?? Promise.resolve()).then(res);
-    document.readyState === 'complete' ? done() : addEventListener('load', done, { once: true });
-  });
+     Sin esperas artificiales: cada bloque se prepara un poco antes de
+     entrar en pantalla (400 px de anticipación). El esqueleto solo se ve
+     si el contenido todavía no está listo, por ejemplo al bajar muy rápido. */
   const onReady = new Map();
   const loader = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (!e.isIntersecting) return;
       loader.unobserve(e.target);
-      const delay = reduced ? 0 : 450 + Math.random() * 350;
-      pageReady.then(() => setTimeout(() => {
+      requestAnimationFrame(() => {
         e.target.classList.add('is-ready');
         onReady.get(e.target)?.();
-      }, delay));
+      });
     });
-  }, { rootMargin: '0px 0px -8% 0px' });
-  $$('[data-load]').forEach(el => loader.observe(el));
+  }, { rootMargin: '400px 0px 400px 0px' });
+  const markReady = el => { el.classList.add('is-ready'); onReady.get(el)?.(); };
+  // Lo que ya está en pantalla al abrir la página se muestra de inmediato;
+  // el resto se prepara al acercarse.
+  const startLoaders = () => $$('[data-load]').forEach(el => {
+    el.getBoundingClientRect().top < innerHeight + 400 ? markReady(el) : loader.observe(el);
+  });
 
   /* ---------- Revelado al hacer scroll ---------- */
   const revealEls = $$('.section-head, .case-grid, .about-card, .case-hero, .journey li, .contact, .domain');
@@ -64,11 +65,20 @@
 
   /* ---------- Reflejo del vidrio que sigue al puntero ---------- */
   if (matchMedia('(hover: hover)').matches) {
-    $$('.glass-lg').forEach(el => el.addEventListener('pointermove', e => {
-      const r = el.getBoundingClientRect();
-      el.style.setProperty('--mx', `${e.clientX - r.left}px`);
-      el.style.setProperty('--my', `${e.clientY - r.top}px`);
-    }));
+    // Un solo cálculo por cuadro, aunque el puntero mande muchos eventos
+    $$('.glass-lg').forEach(el => {
+      let raf = 0, x = 0, y = 0;
+      el.addEventListener('pointermove', e => {
+        x = e.clientX; y = e.clientY;
+        if (raf) return;
+        raf = requestAnimationFrame(() => {
+          raf = 0;
+          const r = el.getBoundingClientRect();
+          el.style.setProperty('--mx', `${x - r.left}px`);
+          el.style.setProperty('--my', `${y - r.top}px`);
+        });
+      }, { passive: true });
+    });
   }
 
   /* ---------- Conteo animado de cifras ---------- */
@@ -86,6 +96,7 @@
   });
   const heroStats = $('.hero-stats');
   onReady.set(heroStats, () => countUp(heroStats));
+  startLoaders();
 
   /* =========================================================
      Demo: ¿pistola o persona?
