@@ -1,0 +1,841 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>David Roa — Desarrollador full stack</title>
+  <meta name="description" content="Portafolio de David Roa: desarrollador full stack que viene de la operación logística. Casos de estudio de LEMOND (React + Node + PostgreSQL) y Operación BOS (Python + Flask).">
+  <meta name="theme-color" content="#f5f5f7">
+  <meta property="og:title" content="David Roa — Desarrollador full stack">
+  <meta property="og:description" content="Construyo software para operaciones reales: inventario, finanzas, recibo de mercancía y cruces de datos.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%230a84ff'/%3E%3Cstop offset='1' stop-color='%235e5ce6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='42' font-family='-apple-system,Helvetica,Arial' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3EDR%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=7">
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+  <!-- Fondo con manchas de color: le da algo que "refractar" al vidrio -->
+  <div class="backdrop" aria-hidden="true">
+    <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span><span class="blob b4"></span>
+  </div>
+
+  <!-- ============ NAVEGACIÓN ============ -->
+  <header class="nav-wrap">
+    <nav class="nav glass" aria-label="Principal">
+      <a href="#inicio" class="brand" aria-label="Inicio">
+        <span class="brand-mark">DR</span><span class="brand-name">David Roa</span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#lemond">LEMOND</a></li>
+        <li><a href="#bos">Operación BOS</a></li>
+        <li><a href="#picking">Picking Cava</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#trayectoria">Trayectoria</a></li>
+      </ul>
+      <a href="#contacto" class="btn btn-primary btn-sm nav-cta">Contacto</a>
+      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="inicio">
+    <!-- ============ HERO ============ -->
+    <section class="hero container">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="dot-live"></span> Disponible para rol full stack junior · Bogotá</p>
+        <h1 class="display">Construyo software<br><span class="grad">para operaciones reales.</span></h1>
+        <p class="lead">
+          Soy David Roa, auxiliar administrativo en un centro de distribución, con un rol que se ha ido
+          volviendo cada vez más tecnológico: he construido los sistemas que la operación necesitaba. Tres hasta hoy, en dos stacks:
+          React, Node y PostgreSQL, y Python con Flask.
+        </p>
+        <div class="hero-actions">
+          <a href="#proyectos" class="btn btn-primary">Ver proyectos</a>
+          <a href="#contacto" class="btn btn-glass">Hablemos</a>
+        </div>
+      </div>
+
+      <div class="hero-stats load" data-load>
+        <div class="skel stats-grid" aria-hidden="true">
+          <div class="stat glass"><span class="sk sk-num"></span><span class="sk sk-line w70"></span></div>
+          <div class="stat glass"><span class="sk sk-num"></span><span class="sk sk-line w60"></span></div>
+          <div class="stat glass"><span class="sk sk-num"></span><span class="sk sk-line w80"></span></div>
+          <div class="stat glass"><span class="sk sk-num"></span><span class="sk sk-line w50"></span></div>
+        </div>
+        <div class="real stats-grid">
+          <div class="stat glass"><strong data-count="3">3</strong><span>sistemas en uso real en la operación</span></div>
+          <div class="stat glass"><strong data-count="35" data-prefix="~" data-suffix=" mil">~35 mil</strong><span>líneas de código propio</span></div>
+          <div class="stat glass"><strong data-count="194">194</strong><span>endpoints de API entre LEMOND y Picking Cava</span></div>
+          <div class="stat glass"><strong data-count="1" data-prefix="~" data-suffix=" millón">~1 millón</strong><span>de cajas procesadas con mis sistemas</span></div>
+        </div>
+        <p class="stats-note">Cifras al 4 de noviembre de 2026.</p>
+      </div>
+    </section>
+
+    <!-- ============ SOBRE MÍ ============ -->
+    <section class="container section about" aria-labelledby="sobre-mi">
+      <div class="about-card glass glass-lg">
+        <div>
+          <p class="eyebrow">Sobre mí</p>
+          <h2 id="sobre-mi" class="h2">De operaciones a desarrollo, sin perder el piso.</h2>
+        </div>
+        <div class="about-text">
+          <p>
+            No soy programador de formación. Llegué al software porque los procesos que veía todos
+            los días —rótulos hechos en Excel con macros, cruces contra SAP a mano, inventarios que no
+            correspondían con la bodega— pedían algo mejor. Empecé a construirlo yo.
+          </p>
+          <p>
+            Lo que traigo es una combinación poco común en un perfil junior: entiendo la operación
+            desde adentro y sé llevar una aplicación hasta producción —base de datos, API, interfaz,
+            despliegue y seguridad—. Uso IA (Claude) como herramienta de desarrollo, y la
+            responsabilidad de definir, probar y validar es mía.
+          </p>
+          <ul class="chips">
+            <li>React</li><li>Node + Express</li><li>PostgreSQL + Prisma</li><li>Python + Flask</li><li>Railway · Cloudflare</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROYECTOS ============ -->
+    <section id="proyectos" class="container section" aria-labelledby="proyectos-t">
+      <div class="section-head">
+        <p class="eyebrow">Proyectos</p>
+        <h2 id="proyectos-t" class="h2">Tres sistemas, usuarios reales.</h2>
+        <p class="sub">Son sistemas internos de empresas en operación: el código es privado. Aquí cuento la arquitectura, las decisiones y los problemas que resolví, con maquetas hechas a propósito con datos inventados.</p>
+      </div>
+
+      <div class="projects">
+        <!-- Tarjeta LEMOND -->
+        <article class="project glass glass-lg load" data-load>
+          <div class="skel" aria-hidden="true">
+            <div class="sk sk-media"></div>
+            <div class="project-body">
+              <span class="sk sk-line w30"></span>
+              <span class="sk sk-title"></span>
+              <span class="sk sk-line"></span><span class="sk sk-line w90"></span><span class="sk sk-line w60"></span>
+              <div class="sk-row"><span class="sk sk-pill"></span><span class="sk sk-pill"></span><span class="sk sk-pill"></span></div>
+            </div>
+          </div>
+          <div class="real">
+            <div class="project-media media-lemond" aria-hidden="true">
+              <div class="mini-window glass">
+                <div class="mw-bar"><i></i><i></i><i></i></div>
+                <div class="mw-flow">
+                  <span>Registrar</span><b>→</b><span>Propagar</span><b>→</b><span>Analizar</span><b>→</b><span class="hl">Recomendar</span>
+                </div>
+                <div class="mw-bars"><i style="--h:40%"></i><i style="--h:65%"></i><i style="--h:52%"></i><i style="--h:80%"></i><i style="--h:70%"></i><i style="--h:92%"></i></div>
+              </div>
+            </div>
+            <div class="project-body">
+              <p class="tag">Freelance · Comercio electrónico · En producción</p>
+              <h3 class="h3">LEMOND</h3>
+              <p>Sistema de gestión de operaciones para una empresa colombiana que vende en Mercado Libre: inventario por escaneo, compras, ventas, finanzas, nómina y un motor que recomienda qué comprar, qué enviar a Full y a qué deuda abonar.</p>
+              <ul class="chips chips-sm"><li>React 19</li><li>Node · Express</li><li>Prisma · PostgreSQL</li><li>Railway · R2</li></ul>
+              <a href="#lemond" class="link-arrow">Leer el caso de estudio</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Tarjeta BOS -->
+        <article class="project glass glass-lg load" data-load>
+          <div class="skel" aria-hidden="true">
+            <div class="sk sk-media"></div>
+            <div class="project-body">
+              <span class="sk sk-line w30"></span>
+              <span class="sk sk-title"></span>
+              <span class="sk sk-line"></span><span class="sk sk-line w90"></span><span class="sk sk-line w60"></span>
+              <div class="sk-row"><span class="sk sk-pill"></span><span class="sk sk-pill"></span><span class="sk sk-pill"></span></div>
+            </div>
+          </div>
+          <div class="real">
+            <div class="project-media media-bos" aria-hidden="true">
+              <div class="mini-window glass">
+                <div class="mw-bar"><i></i><i></i><i></i></div>
+                <div class="mw-cruce">
+                  <span class="pill ok">Coincide</span><span class="pill warn">Diferencia</span><span class="pill info">Solo en SAP</span><span class="pill lilac">Solo en rótulos</span>
+                </div>
+                <div class="mw-rows"><i></i><i></i><i class="w"></i><i></i></div>
+              </div>
+            </div>
+            <div class="project-body">
+              <p class="tag">D1 · CEDI Bogotá Sur · Cava</p>
+              <h3 class="h3">Operación BOS</h3>
+              <p>Aplicación web interna que reemplazó Excel con macros y registros a mano en la cava de un centro de distribución: rótulos con QR, cruce diario con SAP, evaluación de supervisores, diferencias de despacho y productividad.</p>
+              <ul class="chips chips-sm"><li>Python</li><li>Flask · Waitress</li><li>SQLite</li><li>openpyxl · pandas</li></ul>
+              <a href="#bos" class="link-arrow">Leer el caso de estudio</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Tarjeta Picking -->
+        <article class="project glass glass-lg load" data-load>
+          <div class="skel" aria-hidden="true">
+            <div class="sk sk-media"></div>
+            <div class="project-body">
+              <span class="sk sk-line w30"></span>
+              <span class="sk sk-title"></span>
+              <span class="sk sk-line"></span><span class="sk sk-line w90"></span><span class="sk sk-line w60"></span>
+              <div class="sk-row"><span class="sk sk-pill"></span><span class="sk sk-pill"></span><span class="sk sk-pill"></span></div>
+            </div>
+          </div>
+          <div class="real">
+            <div class="project-media media-picking" aria-hidden="true">
+              <div class="phone glass">
+                <div class="phone-notch"></div>
+                <div class="phone-route"><b>RUTA 1</b><span>Tienda 2 de 6</span></div>
+                <div class="phone-item"><strong>Yogur fresa 1 L</strong><small>Ubicación A-03-2</small></div>
+                <div class="phone-progress"><i style="--p:62%"></i></div>
+                <div class="phone-count"><b>5</b><span>/ 8 cajas</span></div>
+                <div class="phone-state"><span class="pill ok">En línea</span></div>
+              </div>
+            </div>
+            <div class="project-body">
+              <p class="tag">D1 · CEDI Bogotá Sur · Cava · En producción</p>
+              <h3 class="h3">Picking Cava</h3>
+              <p>WMS web para el alistamiento en frío: carga del plano diario, asignación inteligente por rutas, escaneo con pistola que funciona sin conexión, auditoría aleatoria, rótulos de estibas, despacho y recepción en tienda.</p>
+              <ul class="chips chips-sm"><li>React 19</li><li>Tailwind</li><li>Express 5</li><li>PostgreSQL · PGlite</li></ul>
+              <a href="#picking" class="link-arrow">Leer el caso de estudio</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="impact">
+        <div class="impact-item glass glass-lg">
+          <span class="impact-ico" aria-hidden="true">▦</span>
+          <div><strong>~1 millón de cajas</strong><p>procesadas con estos sistemas. El detalle está en los sistemas de la compañía.</p></div>
+        </div>
+        <div class="impact-item glass glass-lg">
+          <span class="impact-ico green" aria-hidden="true">↗</span>
+          <div><strong>Bonos de productividad</strong><p>Los aplicativos permiten medir la productividad de cada colaborador, y esa medición es la base para asignar los bonos de fin de mes.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CASO LEMOND ============ -->
+    <section id="lemond" class="case section" aria-labelledby="lemond-t">
+      <div class="container">
+        <div class="case-hero glass glass-lg">
+          <div class="case-hero-copy">
+            <p class="eyebrow">Caso de estudio · 01</p>
+            <h2 id="lemond-t" class="h1">LEMOND</h2>
+            <p class="lead">Un sistema de gestión hecho a la medida, que reemplazó las hojas de cálculo con las que una empresa de comercio electrónico llevaba su operación.</p>
+            <dl class="meta">
+              <div><dt>Rol</dt><dd>Diseño, desarrollo y operación completos. Proyecto de una sola persona.</dd></div>
+              <div><dt>Cliente</dt><dd>Empresa colombiana de comercio electrónico (Mercado Libre + Full)</dd></div>
+              <div><dt>Tiempo</dt><dd>~2,5 meses · en producción desde el primer mes</dd></div>
+              <div><dt>Estado</dt><dd><span class="status ok">En uso diario</span></dd></div>
+            </dl>
+          </div>
+        </div>
+
+        <!-- Problema -->
+        <div class="case-grid">
+          <div class="case-label"><span class="num">01</span><h3 class="h3">El problema</h3></div>
+          <div class="case-content">
+            <p>La operación vivía en hojas de cálculo. Tres síntomas lo hacían insostenible:</p>
+            <div class="cards-3">
+              <div class="mini glass"><span class="ico" aria-hidden="true">⧉</span><h4>El mismo dato, varias veces</h4><p>Una compra se anotaba en inventario, en costos y en caja. Un olvido descuadraba todo sin que nadie se diera cuenta.</p></div>
+              <div class="mini glass"><span class="ico" aria-hidden="true">％</span><h4>No se sabía si un producto daba plata</h4><p>La comisión de Mercado Libre, el envío y la pauta quedaban fuera de la utilidad por producto.</p></div>
+              <div class="mini glass"><span class="ico" aria-hidden="true">▦</span><h4>Inventario de memoria</h4><p>Se escribía a mano lo que se creía que había, no lo que había en la bodega.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reglas -->
+        <div class="case-grid">
+          <div class="case-label"><span class="num">02</span><h3 class="h3">Cuatro reglas antes del primer commit</h3></div>
+          <div class="case-content">
+            <p>Antes de escribir código fijé cuatro reglas de arquitectura. Son lo que separa al proyecto de un CRUD: todos los módulos se acomodan a ellas.</p>
+            <ol class="flow" aria-label="Flujo de procesamiento">
+              <li class="flow-step glass"><span class="step-n">1</span><strong>Registrar</strong><small>La operación se escribe una sola vez.</small></li>
+              <li class="flow-step glass"><span class="step-n">2</span><strong>Propagar</strong><small>Inventario, caja, costos y rentabilidad se actualizan solos.</small></li>
+              <li class="flow-step glass"><span class="step-n">3</span><strong>Analizar</strong><small>Sobre un histórico que nunca se sobrescribe.</small></li>
+              <li class="flow-step glass accent"><span class="step-n">4</span><strong>Recomendar</strong><small>Qué comprar, qué enviar a Full, qué precio ajustar, a qué deuda abonar.</small></li>
+            </ol>
+            <blockquote class="quote glass">“Una compra nueva jamás sobrescribe el costo de las anteriores: cada compra conserva su propio costo, así la utilidad de una venta de hace tres meses sigue siendo cierta hoy.”</blockquote>
+          </div>
+        </div>
+
+        <!-- Maqueta + demo pistola -->
+        <div class="case-grid">
+          <div class="case-label"><span class="num">03</span><h3 class="h3">El stock no se escribe: se escanea</h3></div>
+          <div class="case-content">
+            <p>Eliminé por completo el ajuste manual de inventario —pantalla, endpoint y servicio—. La única forma de mover la bodega es con la pistola lectora, para que lo registrado sea lo que alguien tuvo en la mano. Esa decisión obligó a construir verificación de facturas, averías y picking de Full como caminos separados.</p>
+            <p>El reto técnico: para el navegador, una pistola es un teclado que escribe muy rápido. El sistema la distingue de una persona <strong>por el ritmo de las teclas</strong> (menos de 60 ms entre teclas y al menos 4 caracteres), así nadie tiene que dejar el cursor en un campo, que en el celular abre el teclado y tapa media pantalla. Las lecturas se atienden en cola, de a una, para no perder unidades al disparar rápido.</p>
+
+            <!-- DEMO interactiva -->
+            <div class="demo glass glass-lg load" data-load id="demo-pistola">
+              <div class="skel" aria-hidden="true">
+                <div class="sk-row between"><span class="sk sk-line w40"></span><span class="sk sk-pill"></span></div>
+                <div class="sk sk-block"></div>
+                <div class="sk-row"><span class="sk sk-btn"></span><span class="sk sk-btn"></span></div>
+              </div>
+              <div class="real">
+                <div class="demo-head">
+                  <div>
+                    <p class="eyebrow">Demo en vivo</p>
+                    <h4 class="h4">¿Pistola o persona?</h4>
+                  </div>
+                  <span class="badge" id="scan-verdict" aria-live="polite">Esperando lectura</span>
+                </div>
+                <p class="demo-help">Pulsa <em>Simular pistola</em>, o activa la escucha y escribe un código con el teclado. Cada barra es el tiempo entre dos teclas; la línea punteada marca los 60 ms.</p>
+                <div class="scan-graph" id="scan-graph" aria-hidden="true">
+                  <span class="threshold"><small>60 ms</small></span>
+                </div>
+                <div class="scan-readout">
+                  <code id="scan-code">— — — — — — — — — — — — —</code>
+                  <span id="scan-ean" class="muted"></span>
+                </div>
+                <div class="demo-actions">
+                  <button class="btn btn-primary btn-sm" id="btn-simular">Simular pistola</button>
+                  <button class="btn btn-glass btn-sm" id="btn-escuchar" aria-pressed="false">Activar escucha del teclado</button>
+                </div>
+                <ul class="scan-queue" id="scan-queue" aria-label="Cola de lecturas"></ul>
+              </div>
+            </div>
+
+            <details class="code-block glass">
+              <summary>Ver la idea en código <span class="muted">(fragmento escrito para el portafolio)</span></summary>
+<pre><code><span class="c">// Distinguir la ráfaga de la pistola de una persona escribiendo</span>
+<span class="k">const</span> MAX_GAP = <span class="n">60</span>, MIN_LEN = <span class="n">4</span>, IDLE = <span class="n">120</span>;
+<span class="k">let</span> buffer = <span class="s">''</span>, last = <span class="n">0</span>, timer;
+
+window.addEventListener(<span class="s">'keydown'</span>, (e) => {
+  <span class="k">if</span> (e.target.matches(<span class="s">'input, textarea'</span>)) <span class="k">return</span>; <span class="c">// no contar doble</span>
+  <span class="k">const</span> now = performance.now();
+  <span class="k">if</span> (now - last > MAX_GAP) buffer = <span class="s">''</span>;        <span class="c">// pausa humana: reinicia</span>
+  last = now;
+  <span class="k">if</span> (e.key === <span class="s">'Enter'</span>) <span class="k">return</span> flush();
+  <span class="k">if</span> (e.key.length === <span class="n">1</span>) buffer += e.key;
+  clearTimeout(timer);
+  timer = setTimeout(flush, IDLE);               <span class="c">// la pistola no siempre manda Enter</span>
+});
+
+<span class="k">function</span> flush() {
+  <span class="k">if</span> (buffer.length >= MIN_LEN) cola.push(buffer); <span class="c">// en cola, de a una</span>
+  buffer = <span class="s">''</span>;
+}</code></pre>
+            </details>
+            <p class="aside">Antes hubo escaneo con la cámara del celular. Funcionaba, pero cuando la empresa compró la pistola dejó de ser el camino correcto, y lo borré. Saber eliminar código propio también es parte del oficio.</p>
+          </div>
+        </div>
+
+        <!-- Piezas técnicas -->
+        <div class="case-grid">
+          <div class="case-label"><span class="num">04</span><h3 class="h3">Piezas de ingeniería</h3></div>
+          <div class="case-content">
+            <div class="bento">
+              <article class="bento-item glass span-2">
+                <h4>Leer el PDF de Mercado Libre por coordenadas</h4>
+                <p>En los PDF de alistamiento de Full la columna de unidades vive aparte: leído como texto corrido, el número queda huérfano de su producto. El lector ubica cada dato por su posición en la página y <strong>contrasta el resultado contra los totales que el propio PDF declara</strong>; si no cuadran, rechaza el archivo.</p>
+              </article>
+              <article class="bento-item glass">
+                <h4>Costo promedio ponderado</h4>
+                <p>Calculado sobre una bitácora de compras de solo-agregar: unidades × costo + gastos asociados. Ninguna compra nueva modifica una anterior.</p>
+              </article>
+              <article class="bento-item glass">
+                <h4>Estado de resultados en 3 niveles</h4>
+                <p>Gastos de venta, administrativos y movimientos fuera del resultado. De ahí salen utilidad bruta, operativa y neta.</p>
+              </article>
+              <article class="bento-item glass">
+                <h4>Nómina con aportes de ley</h4>
+                <p>Pensión, salud, ARL, caja, ICBF, SENA y prestaciones. Los porcentajes viven en la base, no en el código, porque cambian con la ley.</p>
+              </article>
+              <article class="bento-item glass">
+                <h4>EAN-13 propios, con criterio</h4>
+                <p>Rango 200–299 que GS1 reserva para uso interno, dígito verificador validado y etiquetas en PDF generadas en el navegador (50 × 25 mm o 27 por hoja).</p>
+              </article>
+              <article class="bento-item glass span-2">
+                <h4>Emparejar el mundo real con el catálogo</h4>
+                <p>El mismo artículo llega con nombres distintos según la cuenta de Mercado Libre. Emparejamiento en cascada (SKU → código universal → título), alias que se vinculan una vez y quedan guardados, y una planilla de unificación que fusiona productos conservando ventas, compras e inventario. <strong>Nada se aplica sin mostrar antes el plan</strong>, porque fusionar borra productos.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <!-- Seguridad -->
+        <div class="case-grid">
+          <div class="case-label"><span class="num">05</span><h3 class="h3">Seguridad y operación</h3></div>
+          <div class="case-content">
+            <p>Antes de salir a producción hice una auditoría de seguridad propia: <strong>15 hallazgos corregidos</strong> y un riesgo aceptado y justificado por escrito.</p>
+            <div class="two-col">
+              <ul class="checklist">
+                <li>JWT en cookie <code>httpOnly</code> + <code>secure</code>, contraseñas con bcrypt</li>
+                <li>Límite de intentos de login por IP y techo general del API</li>
+                <li>Cabeceras con <code>helmet</code>: HSTS, nosniff, anti-clickjacking</li>
+                <li>4 roles validados en el servidor, ruta por ruta; el rol se lee de la base en cada petición</li>
+                <li>El rol de bodega recibe el catálogo sin costos; el personal llega sin sueldos</li>
+              </ul>
+              <ul class="checklist">
+                <li>Railway: PostgreSQL, API y web, con migraciones en cada despliegue</li>
+                <li>Archivos en Cloudflare R2, bucket privado servido con sesión y rol</li>
+                <li>Cierre ordenado en SIGTERM y zona horaria de Colombia fijada al arrancar</li>
+                <li>Scripts de mantenimiento con ensayo obligatorio (<code>--confirmar</code>)</li>
+                <li>Bundle dividido por rutas: de 1,6 MB a una pantalla por vez</li>
+              </ul>
+            </div>
+            <div class="honest glass">
+              <strong>Lo que está pendiente, dicho sin adornos.</strong>
+              Faltan los respaldos automáticos de PostgreSQL (el único punto abierto de la auditoría) y no hay pruebas automatizadas: la verificación ha sido manual. Lo que sí hay son migraciones versionadas, scripts con ensayo previo y cada decisión documentada con fecha, alternativa descartada y motivo.
+            </div>
+          </div>
+        </div>
+
+        <!-- Números -->
+        <div class="case-grid">
+          <div class="case-label"><span class="num">06</span><h3 class="h3">En números</h3></div>
+          <div class="case-content">
+            <div class="numbers load" data-load>
+              <div class="skel numbers-grid" aria-hidden="true">
+                <div class="num-card glass"><span class="sk sk-num"></span><span class="sk sk-line w70"></span></div>
+                <div class="num-card glass"><span class="sk sk-num"></span><span class="sk sk-line w60"></span></div>
+                <div class="num-card glass"><span class="sk sk-num"></span><span class="sk sk-line w70"></span></div>
+                <div class="num-card glass"><span class="sk sk-num"></span><span class="sk sk-line w50"></span></div>
+                <div class="num-card glass"><span class="sk sk-num"></span><span class="sk sk-line w60"></span></div>
+                <div class="num-card glass"><span class="sk sk-num"></span><span class="sk sk-line w80"></span></div>
+              </div>
+              <div class="real numbers-grid">
+                <div class="num-card glass"><strong>21</strong><span>pantallas</span></div>
+                <div class="num-card glass"><strong>126</strong><span>endpoints del API</span></div>
+                <div class="num-card glass"><strong>25</strong><span>modelos de datos</span></div>
+                <div class="num-card glass"><strong>36</strong><span>migraciones versionadas</span></div>
+                <div class="num-card glass"><strong>26</strong><span>servicios de dominio</span></div>
+                <div class="num-card glass"><strong>1.774</strong><span>ventas importadas de Mercado Libre</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CASO OPERACIÓN BOS ============ -->
+    <section id="bos" class="case section" aria-labelledby="bos-t">
+      <div class="container">
+        <div class="case-hero glass glass-lg">
+          <div class="case-hero-copy">
+            <p class="eyebrow">Caso de estudio · 02</p>
+            <h2 id="bos-t" class="h1">Operación BOS</h2>
+            <p class="lead">Una aplicación web interna para la operación de frío —nevera, congelados y fruver— de un centro de distribución. Reemplazó Excel con macros y formatos a mano.</p>
+            <dl class="meta">
+              <div><dt>Dónde</dt><dd>D1 · CEDI Bogotá Sur · área de Cava</dd></div>
+              <div><dt>Rol</dt><dd>Auxiliar administrativo: detecté los problemas, diseñé las soluciones y las construí</dd></div>
+              <div><dt>Tiempo</dt><dd>Octubre – noviembre de 2026, en tres etapas</dd></div>
+              <div><dt>Instalación</dt><dd>USB y doble clic; abre como app de escritorio</dd></div>
+            </dl>
+          </div>
+        </div>
+
+        <!-- Problema -->
+        <div class="case-grid">
+          <div class="case-label"><span class="num">01</span><h3 class="h3">El punto de partida</h3></div>
+          <div class="case-content">
+            <div class="cards-3">
+              <div class="mini glass"><span class="ico" aria-hidden="true">▤</span><h4>Rótulos en Excel con macros</h4><p>Lento, frágil y difícil de consolidar. La impresora a veces imprimía a doble cara y se desperdiciaba papel.</p></div>
+              <div class="mini glass"><span class="ico" aria-hidden="true">⇄</span><h4>Cruce con SAP a mano</h4><p>Comparar lo recibido contra lo ingresado en SAP se hacía orden de compra por orden de compra.</p></div>
+              <div class="mini glass"><span class="ico" aria-hidden="true">☰</span><h4>Datos que no se cruzaban</h4><p>Productividad diligenciada a mano, diferencias de despacho sin dueño y la misma persona con tres nombres distintos.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Etapas -->
+        <div class="case-grid">
+          <div class="case-label"><span class="num">02</span><h3 class="h3">Tres etapas, una aplicación</h3></div>
+          <div class="case-content">
+            <ol class="timeline">
+              <li class="glass"><span class="when">Octubre</span><strong>Recibo BOS</strong><p>Registro de recibos, rótulos con QR, consolidado e indicadores. Reemplaza el Excel de rótulos.</p></li>
+              <li class="glass"><span class="when">Octubre</span><strong>CAVA BOS</strong><p>Supervisores, diferencias de despacho, productividad (BCT) y hojas de vida del personal.</p></li>
+              <li class="glass accent"><span class="when">28 oct →</span><strong>Operación BOS</strong><p>Las dos se unen en una sola aplicación, con inicio de sesión por roles y menú tipo consola.</p></li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Demo cruce SAP -->
+        <div class="case-grid">
+          <div class="case-label"><span class="num">03</span><h3 class="h3">El cruce diario con SAP</h3></div>
+          <div class="case-content">
+            <p>Se sube el Excel que envía el radicador y la aplicación compara, por orden de compra y material, las cajas ingresadas en SAP contra las rotuladas físicamente. Cada línea queda en una de cuatro categorías, con totales por cuadrante. Lo que antes se revisaba orden por orden ahora se ve completo en una sola pantalla.</p>
+
+            <div class="demo glass glass-lg load" data-load id="demo-cruce">
+              <div class="skel" aria-hidden="true">
+                <div class="sk-row"><span class="sk sk-pill"></span><span class="sk sk-pill"></span><span class="sk sk-pill"></span><span class="sk sk-pill"></span></div>
+                <span class="sk sk-line"></span><span class="sk sk-line"></span><span class="sk sk-line w90"></span><span class="sk sk-line"></span><span class="sk sk-line w80"></span>
+              </div>
+              <div class="real">
+                <div class="demo-head">
+                  <div>
+                    <p class="eyebrow">Maqueta interactiva · datos ficticios</p>
+                    <h4 class="h4">Cruce SAP — día de ejemplo</h4>
+                  </div>
+                  <div class="seg" role="tablist" aria-label="Cuadrante" id="cuadrantes">
+                    <button role="tab" aria-selected="true" data-q="todos">Todos</button>
+                    <button role="tab" aria-selected="false" data-q="Nevera">Nevera</button>
+                    <button role="tab" aria-selected="false" data-q="Congelados">Congelados</button>
+                    <button role="tab" aria-selected="false" data-q="Fruver">Fruver</button>
+                  </div>
+                </div>
+                <div class="filters" id="estados" aria-label="Estado"></div>
+                <div class="table-wrap">
+                  <table class="table" id="tabla-cruce">
+                    <thead><tr><th>O.C.</th><th>Material</th><th>Cuadrante</th><th class="r">SAP</th><th class="r">Rótulos</th><th>Estado</th></tr></thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Módulos -->
+        <div class="case-grid">
+          <div class="case-label"><span class="num">04</span><h3 class="h3">Módulos</h3></div>
+          <div class="case-content">
+            <div class="bento">
+              <article class="bento-item glass span-2 with-visual">
+                <div>
+                  <h4>Recibo y rótulos con QR</h4>
+                  <p>Calcula estibas completas y saldo, vida útil al llegar y estado <em>Cumple / No cumple</em> según FEFO-FIFO. El QR lo lee una app de Power Apps de los montacarguistas, así que <strong>mantuve el formato exacto</strong> para no romper esa integración. Impresión directa forzada a una cara, con ahorro de tóner.</p>
+                </div>
+                <div class="label-mock" aria-hidden="true">
+                  <div class="qr" id="qr-mock"></div>
+                  <div class="label-lines"><b>ESTIBA 3/4</b><span>Material 000000</span><span>Vence 15-12-2026</span><span class="ok-text">CUMPLE</span></div>
+                </div>
+              </article>
+              <article class="bento-item glass">
+                <h4>Evaluación de supervisores</h4>
+                <p>22 ítems con pesos en dos bloques, registro diario “Mi turno” y notas sugeridas a partir de él. La hora de cierre se califica con una escala de minutos de retraso. Exporta informe en Excel con fórmulas reales.</p>
+              </article>
+              <article class="bento-item glass">
+                <h4>Diferencias de despacho</h4>
+                <p>Cruza archivos de miles de filas para atribuir cada faltante o sobrante al picker y al turno. Tablero con filtros, ranking y tendencia semanal.</p>
+              </article>
+              <article class="bento-item glass">
+                <h4>Productividad (BCT)</h4>
+                <p>Horas y cajas por persona y rol, tendencia de 12 meses y cruce contra los rótulos: avisa cuando no coinciden y prioriza el dato de los rótulos. Es la medición que se usa para asignar los <strong>bonos de productividad</strong> de fin de mes.</p>
+              </article>
+              <article class="bento-item glass">
+                <h4>Personal y roles</h4>
+                <p>Directorio, personal inactivo con motivo de retiro y detección de duplicados. Cuatro roles; cada uno ve solo sus secciones.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <!-- Arquitectura -->
+        <div class="case-grid">
+          <div class="case-label"><span class="num">05</span><h3 class="h3">Arquitectura</h3></div>
+          <div class="case-content">
+            <div class="arch glass glass-lg">
+              <div class="arch-col">
+                <p class="arch-title">Entradas</p>
+                <span class="arch-chip">Excel SAP del radicador</span>
+                <span class="arch-chip">Diferencias de despacho</span>
+                <span class="arch-chip">Consolidado de alistamiento</span>
+                <span class="arch-chip">BCT</span>
+              </div>
+              <div class="arch-core">
+                <p class="arch-title">PC de la operación · Windows</p>
+                <div class="core-box">
+                  <strong>Flask + Waitress</strong>
+                  <small>solo 127.0.0.1 · sin exposición a la red</small>
+                  <div class="core-mods"><span>Recibo</span><span>Cava</span><span>Supervisores</span><span>Diferencias</span><span>BCT</span><span>Personal</span></div>
+                </div>
+                <div class="core-dbs"><span>recibo_bos.db</span><span>cava_bos.db</span><small>respaldo diario automático</small></div>
+              </div>
+              <div class="arch-col">
+                <p class="arch-title">Salidas</p>
+                <span class="arch-chip">Rótulos con QR · una cara</span>
+                <span class="arch-chip">Informes Excel con gráficos</span>
+                <span class="arch-chip accent">QR → app Power Apps</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Retos -->
+        <div class="case-grid">
+          <div class="case-label"><span class="num">06</span><h3 class="h3">Retos y lo que aprendí</h3></div>
+          <div class="case-content">
+            <div class="accordion">
+              <details class="glass" open>
+                <summary>No romper lo que ya funcionaba</summary>
+                <p>Otra aplicación leía los QR de los rótulos. Al cambiar de sistema mantuve el formato exacto, y los montacarguistas no notaron el cambio. Aprendí que una migración se mide por lo que el usuario <em>no</em> tiene que reaprender.</p>
+              </details>
+              <details class="glass">
+                <summary>La misma persona con tres nombres</summary>
+                <p>Usuario del WMS, nombre corto y nombre completo en la BCT. Construí una coincidencia por palabras para reconocer a la persona y unir sus registros.</p>
+              </details>
+              <details class="glass">
+                <summary>Datos que no cuadran entre fuentes</summary>
+                <p>Rótulos contra SAP, rótulos contra BCT y diferencias contra turnos. Cada cruce avisa cuando algo no coincide y define cuál es la fuente confiable.</p>
+              </details>
+              <details class="glass">
+                <summary>Una evaluación justa</summary>
+                <p>Pasé de una calificación subjetiva a un sistema con pesos, registro diario y notas sugeridas. Los informes presentan las novedades como hechos del turno, no como culpas sin soporte.</p>
+              </details>
+              <details class="glass">
+                <summary>Adopción por personal operativo</summary>
+                <p>Instalación con doble clic, menú visual grande, pantallas de carga y roles que muestran solo lo necesario. Si es incómodo, no se usa.</p>
+              </details>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CASO PICKING CAVA ============ -->
+    <section id="picking" class="case section" aria-labelledby="picking-t">
+      <div class="container">
+        <div class="case-hero glass glass-lg">
+          <div class="case-hero-copy">
+            <p class="eyebrow">Caso de estudio · 03</p>
+            <h2 id="picking-t" class="h1">Picking Cava</h2>
+            <p class="lead">Un sistema de gestión de almacén (WMS) para el alistamiento de productos refrigerados: va desde el plano de pedidos del día hasta la recepción en la tienda, con un escaneo que sigue funcionando sin señal.</p>
+            <dl class="meta">
+              <div><dt>Dónde</dt><dd>D1 · CEDI Bogotá Sur · área de Cava</dd></div>
+              <div><dt>Rol</dt><dd>Requerimientos, reglas de negocio, validación contra la operación y pruebas. Desarrollo asistido por IA (Claude Code)</dd></div>
+              <div><dt>Tiempo</dt><dd>Octubre – noviembre de 2026</dd></div>
+              <div><dt>Estado</dt><dd><span class="status ok">En producción desde el 31 oct 2026</span></dd></div>
+            </dl>
+          </div>
+        </div>
+
+        <!-- Problema -->
+        <div class="case-grid">
+          <div class="case-label"><span class="num">01</span><h3 class="h3">El problema</h3></div>
+          <div class="case-content">
+            <p>El alistamiento se coordinaba con una herramienta anterior hecha a la medida sobre SQL Server, que tenía cuatro problemas:</p>
+            <div class="cards-2">
+              <div class="mini glass"><span class="ico" aria-hidden="true">⚿</span><h4>Deuda técnica y de seguridad</h4><p>Contraseñas en texto plano, fechas corregidas a mano restando 5 horas y un módulo de cargue a camión incompleto.</p></div>
+              <div class="mini glass"><span class="ico" aria-hidden="true">⇅</span><h4>Rutas en desorden</h4><p>Se ordenaban como texto: “RUTA 10” quedaba antes que “RUTA 2”, y las tareas no seguían la prioridad real.</p></div>
+              <div class="mini glass"><span class="ico" aria-hidden="true">❄</span><h4>No pensada para el cuarto frío</h4><p>Operarios con guantes y una señal WiFi inestable, frente a una interfaz que no tenía en cuenta ninguna de las dos cosas.</p></div>
+              <div class="mini glass"><span class="ico" aria-hidden="true">▥</span><h4>EAN de caja uno por uno</h4><p>No había una forma simple de cargar en bloque los códigos de barras de las cajas.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recorrido -->
+        <div class="case-grid">
+          <div class="case-label"><span class="num">02</span><h3 class="h3">Reconstruir sin cambiarle la vida a nadie</h3></div>
+          <div class="case-content">
+            <p>Reconstruí el sistema completo y conservé el <strong>mismo funcionamiento</strong> que los usuarios ya conocían: las mismas pantallas, los mismos nombres y los mismos flujos, con un diseño nuevo. Cada estiba sigue un único ciclo de vida, con trazabilidad completa:</p>
+            <ol class="flow flow-5" aria-label="Ciclo de una estiba">
+              <li class="flow-step glass"><span class="step-n">1</span><strong>Plano</strong><small>Excel del día validado y repartido entre pickers.</small></li>
+              <li class="flow-step glass"><span class="step-n">2</span><strong>Alistada</strong><small>Escaneo caja por caja contra su EAN.</small></li>
+              <li class="flow-step glass"><span class="step-n">3</span><strong>Ubicada</strong><small>Rótulo EST-000123 con QR y posición en el patio.</small></li>
+              <li class="flow-step glass"><span class="step-n">4</span><strong>Cargada</strong><small>Se escanea cada estiba al subirla al camión.</small></li>
+              <li class="flow-step glass accent"><span class="step-n">5</span><strong>Recibida</strong><small>La tienda la escanea y cierra con aviso de faltantes.</small></li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Demo sin conexión -->
+        <div class="case-grid">
+          <div class="case-label"><span class="num">03</span><h3 class="h3">Escaneo que no depende de la señal</h3></div>
+          <div class="case-content">
+            <p>Dentro de un cuarto frío el WiFi va y viene. Por eso cada lectura queda primero <strong>en una cola en el equipo del picker</strong> y se envía sola cuando hay conexión. Cada lectura lleva un id único: si un reintento llega dos veces al servidor, la caja <strong>no se cuenta doble</strong>.</p>
+
+            <div class="demo glass glass-lg load" data-load id="demo-offline">
+              <div class="skel" aria-hidden="true">
+                <div class="sk-row between"><span class="sk sk-line w40"></span><span class="sk sk-pill"></span></div>
+                <div class="sk sk-block"></div>
+                <div class="sk-row"><span class="sk sk-btn"></span><span class="sk sk-btn"></span><span class="sk sk-btn"></span></div>
+              </div>
+              <div class="real">
+                <div class="demo-head">
+                  <div>
+                    <p class="eyebrow">Demo en vivo · datos ficticios</p>
+                    <h4 class="h4">Cola de lecturas sin conexión</h4>
+                  </div>
+                  <button class="net-toggle" id="net-toggle" aria-pressed="true"><span class="net-dot"></span><span id="net-label">En línea</span></button>
+                </div>
+                <p class="demo-help">Corta la conexión, escanea algunas cajas y vuelve a conectarte. Luego prueba con <em>Reintento duplicado</em>: el servidor reconoce el id y no suma la caja otra vez.</p>
+                <div class="offline-grid">
+                  <div class="off-panel">
+                    <p class="arch-title">Equipo del picker</p>
+                    <ul class="off-list" id="off-device" aria-live="polite"></ul>
+                  </div>
+                  <div class="off-arrow" aria-hidden="true" id="off-arrow">→</div>
+                  <div class="off-panel">
+                    <p class="arch-title">Servidor</p>
+                    <div class="off-server">
+                      <strong id="off-count">0</strong><span>cajas contadas de 8</span>
+                      <div class="phone-progress"><i id="off-bar" style="--p:0%"></i></div>
+                      <small id="off-log" class="muted">Sin lecturas todavía</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="demo-actions">
+                  <button class="btn btn-primary btn-sm" id="off-scan">Escanear caja</button>
+                  <button class="btn btn-glass btn-sm" id="off-dup">Reintento duplicado</button>
+                  <button class="btn btn-glass btn-sm" id="off-reset">Reiniciar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Módulos -->
+        <div class="case-grid">
+          <div class="case-label"><span class="num">04</span><h3 class="h3">Módulos</h3></div>
+          <div class="case-content">
+            <div class="bento">
+              <article class="bento-item glass span-2">
+                <h4>Asignación inteligente</h4>
+                <p>Parámetros, resumen de pendientes por cuadrante, pickers con tope de cajas, vista previa y confirmación. Reparte el trabajo de forma <strong>equilibrada y en orden de prioridad de ruta</strong>, y el picker solo puede abrir la primera tienda pendiente.</p>
+              </article>
+              <article class="bento-item glass">
+                <h4>En vivo</h4>
+                <p>Ritmo en cajas por hora, hora estimada de cierre, avance por ruta y alertas de rutas sin picker o tareas detenidas.</p>
+              </article>
+              <article class="bento-item glass">
+                <h4>Productividad</h4>
+                <p>Ranking por picker con cajas por hora y eficiencia, del día o histórico. Exportable, y útil para soportar los <strong>bonos de productividad</strong>.</p>
+              </article>
+              <article class="bento-item glass">
+                <h4>Auditoría aleatoria</h4>
+                <p>Al cerrar, el sistema puede pedir un reconteo según la probabilidad que defina el supervisor; la tarea queda retenida hasta que él la libera.</p>
+              </article>
+              <article class="bento-item glass">
+                <h4>Rótulos de estibas</h4>
+                <p>Código EST-000123 con QR, impresos desde el navegador (5 × 5 cm) o en ZPL para impresoras Zebra y Brother.</p>
+              </article>
+              <article class="bento-item glass span-2 with-visual">
+                <div>
+                  <h4>Orden natural de rutas, en SQL</h4>
+                  <p>Una función <code>ruta_num()</code> extrae el número de la ruta, y así “RUTA 2” va antes que “RUTA 10”. Parece un detalle, pero define en qué orden trabaja todo el piso.</p>
+                </div>
+                <div class="sort-compare" aria-label="Comparación de ordenamiento">
+                  <div><small>Como texto</small><ul id="sort-text"></ul></div>
+                  <div><small>Con ruta_num()</small><ul id="sort-nat" class="good"></ul></div>
+                </div>
+              </article>
+              <article class="bento-item glass">
+                <h4>Pensado para el picker</h4>
+                <p>Un producto a la vez y en orden de ubicación, con “¿Dónde iba?”, registro de faltantes, cronómetro, sonido y vibración en cada lectura.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <!-- Arquitectura -->
+        <div class="case-grid">
+          <div class="case-label"><span class="num">05</span><h3 class="h3">Decisiones técnicas</h3></div>
+          <div class="case-content">
+            <div class="two-col">
+              <ul class="checklist">
+                <li>Una sola app Node sirve la API (<code>/api</code>) y la web compilada</li>
+                <li><strong>Misma base en local y en la nube:</strong> PGlite (Postgres embebido) en un PC, PostgreSQL en Railway, con el mismo SQL</li>
+                <li>JWT, bcrypt y 5 roles de usuario</li>
+                <li>Cargue de plano en 3 pasos, con validación de columnas y de entregas duplicadas</li>
+              </ul>
+              <ul class="checklist">
+                <li>Code splitting: de un archivo de 480 KB a pantallas de 3–17 KB</li>
+                <li>Compresión gzip y caché de un año para los archivos estáticos</li>
+                <li>Skeleton loaders en todas las pantallas y foco automático para la pistola</li>
+                <li><strong>Pruebas automatizadas</strong> de recorridos completos contra la API: plano, asignación, escaneo, auditoría, transporte, despacho y recepción</li>
+              </ul>
+            </div>
+            <div class="numbers-grid">
+              <div class="num-card glass"><strong>68</strong><span>endpoints</span></div>
+              <div class="num-card glass"><strong>11</strong><span>tablas</span></div>
+              <div class="num-card glass"><strong>28</strong><span>componentes React</span></div>
+              <div class="num-card glass"><strong>~8.300</strong><span>líneas de código</span></div>
+              <div class="num-card glass"><strong>5</strong><span>roles de usuario</span></div>
+              <div class="num-card glass"><strong>~25.000</strong><span>cajas pickeadas en vivo en su primera semana</span></div>
+            </div>
+            <div class="honest glass" style="margin-top:16px">
+              <strong>Estado actual, sin adornos.</strong>
+              Salió a producción el sábado 31 de octubre de 2026 y desde entonces se han alistado cerca de 25.000 cajas sin fallas. Todavía no hay datos suficientes para medir si bajaron las diferencias de despacho: es el indicador que sigue.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HABILIDADES ============ -->
+    <section id="habilidades" class="container section" aria-labelledby="hab-t">
+      <div class="section-head">
+        <p class="eyebrow">Habilidades</p>
+        <h2 id="hab-t" class="h2">Lo que he usado en producción.</h2>
+        <p class="sub">No es una lista de cursos: cada herramienta está en alguno de los tres sistemas.</p>
+      </div>
+      <div class="skills load" data-load>
+        <div class="skel skills-grid" aria-hidden="true">
+          <div class="skill glass"><span class="sk sk-line w40"></span><div class="sk-row wrap"><span class="sk sk-pill"></span><span class="sk sk-pill"></span><span class="sk sk-pill"></span><span class="sk sk-pill"></span></div></div>
+          <div class="skill glass"><span class="sk sk-line w40"></span><div class="sk-row wrap"><span class="sk sk-pill"></span><span class="sk sk-pill"></span><span class="sk sk-pill"></span><span class="sk sk-pill"></span></div></div>
+          <div class="skill glass"><span class="sk sk-line w40"></span><div class="sk-row wrap"><span class="sk sk-pill"></span><span class="sk sk-pill"></span><span class="sk sk-pill"></span></div></div>
+          <div class="skill glass"><span class="sk sk-line w40"></span><div class="sk-row wrap"><span class="sk sk-pill"></span><span class="sk sk-pill"></span><span class="sk sk-pill"></span></div></div>
+        </div>
+        <div class="real skills-grid">
+          <div class="skill glass">
+            <h3 class="h4"><span class="sk-ico blue" aria-hidden="true">◐</span> Frontend</h3>
+            <ul class="chips chips-sm"><li>React 19</li><li>Vite</li><li>React Router</li><li>Tailwind CSS</li><li>Chart.js</li><li>JavaScript</li><li>HTML · CSS</li><li>jsPDF · JsBarcode</li><li>Axios</li></ul>
+          </div>
+          <div class="skill glass">
+            <h3 class="h4"><span class="sk-ico green" aria-hidden="true">◇</span> Backend</h3>
+            <ul class="chips chips-sm"><li>Node.js</li><li>Express 4 y 5</li><li>Prisma</li><li>PostgreSQL</li><li>PGlite</li><li>Python</li><li>Flask</li><li>SQLite</li><li>JWT · bcrypt</li></ul>
+          </div>
+          <div class="skill glass">
+            <h3 class="h4"><span class="sk-ico orange" aria-hidden="true">▣</span> Datos y archivos</h3>
+            <ul class="chips chips-sm"><li>pandas</li><li>openpyxl</li><li>ExcelJS</li><li>SheetJS</li><li>ZPL (impresoras Zebra)</li><li>pdf-parse</li><li>Lectura de PDF por coordenadas</li><li>Cruces entre fuentes</li></ul>
+          </div>
+          <div class="skill glass">
+            <h3 class="h4"><span class="sk-ico purple" aria-hidden="true">☁</span> Infraestructura y oficio</h3>
+            <ul class="chips chips-sm"><li>Railway</li><li>Cloudflare R2 · DNS</li><li>Git · GitHub</li><li>Migraciones versionadas</li><li>Pruebas de recorrido contra la API</li><li>Auditoría de seguridad</li><li>Control de acceso por roles</li><li>Desarrollo asistido por IA</li></ul>
+          </div>
+        </div>
+      </div>
+      <div class="domain glass">
+        <p class="eyebrow">Dominio de negocio</p>
+        <p>Logística de centros de distribución · inventario y FEFO-FIFO · SAP y WMS · Mercado Libre y Full · contabilidad y estado de resultados · nómina colombiana · estándares GS1 · Ley 1581 de protección de datos.</p>
+      </div>
+    </section>
+
+    <!-- ============ TRAYECTORIA ============ -->
+    <section id="trayectoria" class="container section" aria-labelledby="tray-t">
+      <div class="section-head">
+        <p class="eyebrow">Trayectoria</p>
+        <h2 id="tray-t" class="h2">Así fue el cambio.</h2>
+      </div>
+      <ol class="journey">
+        <li><span class="j-dot"></span><div class="glass j-card"><span class="when">D1 · CEDI Bogotá Sur</span><strong>Auxiliar administrativo · área de Cava</strong><p>Un cargo administrativo que en la práctica se volvió tecnológico: recibo, seguimiento de supervisores, indicadores y, sobre todo, construir las herramientas que la operación no tenía.</p></div></li>
+        <li><span class="j-dot"></span><div class="glass j-card"><span class="when">Agosto 2026</span><strong>Reglas de arquitectura de LEMOND</strong><p>Antes del primer commit, cuatro reglas que gobiernan todo el sistema.</p></div></li>
+        <li><span class="j-dot"></span><div class="glass j-card"><span class="when">Septiembre 2026</span><strong>LEMOND en producción</strong><p>Auditoría de seguridad propia y primer despliegue en Railway.</p></div></li>
+        <li><span class="j-dot"></span><div class="glass j-card"><span class="when">Octubre 2026</span><strong>Recibo BOS y CAVA BOS</strong><p>Dos aplicaciones para la cava, unificadas el 28 de octubre en Operación BOS.</p></div></li>
+        <li><span class="j-dot"></span><div class="glass j-card"><span class="when">31 de octubre de 2026</span><strong>Picking Cava en producción</strong><p>El nuevo sistema de alistamiento de la cava sale en vivo: cerca de 25.000 cajas pickeadas en su primera semana, sin fallas.</p></div></li>
+        <li class="now"><span class="j-dot"></span><div class="glass j-card"><span class="when">Hoy</span><strong>Buscando mi primer rol como desarrollador</strong><p>Full stack junior, en un equipo donde pueda aprender de gente con más experiencia y aportar lo que sé de operación.</p></div></li>
+      </ol>
+    </section>
+
+    <!-- ============ CONTACTO ============ -->
+    <section id="contacto" class="container section" aria-labelledby="contacto-t">
+      <div class="contact glass glass-lg">
+        <p class="eyebrow">Contacto</p>
+        <h2 id="contacto-t" class="h1">¿Hablamos?</h2>
+        <p class="lead">Estoy buscando un rol como desarrollador full stack junior. Con gusto te muestro cualquiera de los tres sistemas en una llamada, con datos de demostración.</p>
+        <div class="contact-actions">
+          <a class="btn btn-primary" id="contact-email" href="mailto:david13roa@gmail.com">Escríbeme</a>
+          <a class="btn btn-glass" href="https://www.linkedin.com/in/david-roa-4aa489242/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn btn-glass" href="https://github.com/david13roa" target="_blank" rel="noopener">GitHub</a>
+        </div>
+        <p class="muted small"><a href="mailto:david13roa@gmail.com">david13roa@gmail.com</a> · Bogotá, Colombia</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <p>© <span id="year">2026</span> David Roa.</p>
+    <p class="muted">Las maquetas usan datos ficticios. Los sistemas son privados de las empresas que los usan.</p>
+  </footer>
+
+  <script src="app.js?v=7" defer></script>
+</body>
+</html>
