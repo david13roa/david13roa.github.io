@@ -482,11 +482,11 @@ strong { font-weight: 650; }
    1. El vidrio dentro de otro vidrio no necesita su propio desenfoque:
       el de afuera ya difumina el fondo. Se reemplaza por un blanco translúcido.
    2. Las secciones fuera de pantalla no se dibujan hasta acercarse. */
-.glass .glass { -webkit-backdrop-filter: none; backdrop-filter: none; background: linear-gradient(140deg, rgba(255,255,255,.82), rgba(255,255,255,.6)); }
+.glass .glass:not(.accent) { -webkit-backdrop-filter: none; backdrop-filter: none; background: linear-gradient(140deg, rgba(255,255,255,.82), rgba(255,255,255,.6)); }
 .case, #habilidades, #trayectoria, #contacto { content-visibility: auto; contain-intrinsic-size: auto 1400px; }
 @media (max-width: 860px) {
   /* En celular solo la barra de navegación y las tarjetas grandes llevan desenfoque */
-  .glass:not(.nav):not(.glass-lg) { -webkit-backdrop-filter: none; backdrop-filter: none; background: linear-gradient(140deg, rgba(255,255,255,.86), rgba(255,255,255,.66)); }
+  .glass:not(.nav):not(.glass-lg):not(.accent) { -webkit-backdrop-filter: none; backdrop-filter: none; background: linear-gradient(140deg, rgba(255,255,255,.86), rgba(255,255,255,.66)); }
 }
 
 /* =========================================================
